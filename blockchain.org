@@ -1,0 +1,131 @@
+* BTC
+** 密码学基础
+加密货币(Crypto Currency)
+*** SHA-256(Secure Hash Algorithm)
+cryptographic hash function
+1. collision resistance
+   人为难以制造hash collision
+2. hiding
+   从输出不能推断出输入 要求：输入空间足够大
+   
+   由1和2可以推出digital commitment(digital equivalent of sealed envelope)
+3. puzzle friendly
+   哈希值的计算事先不可预测
+
+   diffcult to solve, but easy to verify.
+*** 账户管理
+1. 非对称加密算法：asymmetric encrypto algorithm
+   一对密钥：(public key, private key)
+   加密：public key
+   解密：private key
+2. 非对称加密算法：symmetric encrypto algorithm
+   一个密钥：encrypto key
+*** 签名
+签名：private key
+验证：public key
+
+BTC系统中一般先对msg做hash，再对hash值签名
+** 比特币的数据结构
+Block chain is a linked list using *hash pointers*.
+*** hash pointer
+#+begin_example
+tamper-evident log 篡改证明记录
+
+ ---       ---       ---       ---
+|   | <-- |H()| <-- |H()| <-- |H()| <-- H()
+ ---       ---       ---       ---
+  ^                             ^
+genesis block               most recent block
+#+end_example
+*** merkle tree
+#+begin_example
+              H()               root hash
+               |
+            -------
+           |H() H()|
+            -------
+           /       \
+          /         \
+      -------    -------
+     |H() H()|  |H() H()|       hash pointers
+      -------    -------
+       /   \      /    \
+      /     \    /      \
+     ---   ---   ---   ---
+    |   | |   | |   | |   |     data blocks
+     ---   ---   ---   ---
+#+end_example
+merkle proof: path from data block to root
+full node：block header and block body
+light node：only block header
+
+proof of membership: O(log(n))
+proof of non-membership: O(log(n)) -> sorted merkle tree
+** 公示协议和系统实现
+*** 纸质货币和数字货币的区别
+1. double spending attack
+*** 去中心化数字货币
+1. 谁决定货币的发行
+   coinbase transaction: 产生货币的唯一来源
+2. 怎么验证交易有效性--double spending attack
+   区块链
+   
+每个交易包含输入和输出
+输入：币的来源、自己的公钥
+输出：收款人公钥的hash
+
+A给B转账需要的信息：
+1. A的签名
+2. B的地址
+*** 区块链
+区块链：区块组成的链表
+每个区块是一个merkle tree，包含block header和block body
+1. block header
+   1) version
+   2) hash of previous block header
+   3) merkle tree root hash
+   4) target
+   5) nonce
+2. block body
+   1) transaction list
+*** consensus in bitcoin
+去中心化账本的内容是需要取得的共识
+只有获得记账权的节点才可以写这个账本(block reward + transaction fee)
+如何获得记账权：mining
+H(block header) <= target
+
+block must be in longest valid chain
+*** transaction-based ledger
+全节点维护一个UTXO的数据结构
+UTXO: Unspent Transaction Output
+
+每个交易输入的金额要等于输出的金额(total inputs = total outputs)
+*** secure
+Bernoulli trial: a random experiment with binary outcome
+Bernoulli process: a sequence of independent Bernoulli trial
+Poisson Process
+出块时间服从指数分布: exponential distribution
+保证挖矿公平: progress free
+
+bitcoin is secured by mining.
+
+安全性：six confirmation
+
+selfish mining
+** 挖矿算法和难度调整
+
+** 比特币脚本
+** 软分叉和硬分叉
+** 匿名和隐私保护
+* ETH
+** 基于账户的分布式账本
+account-based ledger
+** 状态树、交易树、收据树
+** GHOST协议
+** 挖矿：memory-hard mining puzzle
+** 挖矿难度证明
+** 权益证明
+** 智能合约
+
+
+
