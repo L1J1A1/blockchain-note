@@ -7,7 +7,7 @@ cryptographic hash function
    人为难以制造hash collision
 2. hiding
    从输出不能推断出输入 要求：输入空间足够大
-   
+
    由1和2可以推出digital commitment(digital equivalent of sealed envelope)
 3. puzzle friendly
    哈希值的计算事先不可预测
@@ -69,7 +69,7 @@ proof of non-membership: O(log(n)) -> sorted merkle tree
    coinbase transaction: 产生货币的唯一来源
 2. 怎么验证交易有效性--double spending attack
    区块链
-   
+
 每个交易包含输入和输出
 输入：币的来源、自己的公钥
 输出：收款人公钥的hash
