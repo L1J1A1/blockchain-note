@@ -1,35 +1,35 @@
 * BTC
-** ÃÜÂëÑ§»ù´¡
-¼ÓÃÜ»õ±Ò(Crypto Currency)
+** å¯†ç å­¦åŸºç¡€
+åŠ å¯†è´§å¸(Crypto Currency)
 *** SHA-256(Secure Hash Algorithm)
 cryptographic hash function
 1. collision resistance
-   ÈËÎªÄÑÒÔÖÆÔìhash collision
+   äººä¸ºéš¾ä»¥åˆ¶é€ hash collision
 2. hiding
-   ´ÓÊä³ö²»ÄÜÍÆ¶Ï³öÊäÈë ÒªÇó£ºÊäÈë¿Õ¼ä×ã¹»´ó
+   ä»è¾“å‡ºä¸èƒ½æ¨æ–­å‡ºè¾“å…¥ è¦æ±‚ï¼šè¾“å…¥ç©ºé—´è¶³å¤Ÿå¤§
 
-   ÓÉ1ºÍ2¿ÉÒÔÍÆ³ödigital commitment(digital equivalent of sealed envelope)
+   ç”±1å’Œ2å¯ä»¥æ¨å‡ºdigital commitment(digital equivalent of sealed envelope)
 3. puzzle friendly
-   ¹şÏ£ÖµµÄ¼ÆËãÊÂÏÈ²»¿ÉÔ¤²â
+   å“ˆå¸Œå€¼çš„è®¡ç®—äº‹å…ˆä¸å¯é¢„æµ‹
 
    diffcult to solve, but easy to verify.
-*** ÕË»§¹ÜÀí
-1. ·Ç¶Ô³Æ¼ÓÃÜËã·¨£ºasymmetric encrypto algorithm
-   Ò»¶ÔÃÜÔ¿£º(public key, private key)
-   ¼ÓÃÜ£ºpublic key
-   ½âÃÜ£ºprivate key
-2. ·Ç¶Ô³Æ¼ÓÃÜËã·¨£ºsymmetric encrypto algorithm
-   Ò»¸öÃÜÔ¿£ºencrypto key
-*** Ç©Ãû
-Ç©Ãû£ºprivate key
-ÑéÖ¤£ºpublic key
+*** è´¦æˆ·ç®¡ç†
+1. éå¯¹ç§°åŠ å¯†ç®—æ³•ï¼šasymmetric encrypto algorithm
+   ä¸€å¯¹å¯†é’¥ï¼š(public key, private key)
+   åŠ å¯†ï¼špublic key
+   è§£å¯†ï¼šprivate key
+2. éå¯¹ç§°åŠ å¯†ç®—æ³•ï¼šsymmetric encrypto algorithm
+   ä¸€ä¸ªå¯†é’¥ï¼šencrypto key
+*** ç­¾å
+ç­¾åï¼šprivate key
+éªŒè¯ï¼špublic key
 
-BTCÏµÍ³ÖĞÒ»°ãÏÈ¶Ômsg×öhash£¬ÔÙ¶ÔhashÖµÇ©Ãû
-** ±ÈÌØ±ÒµÄÊı¾İ½á¹¹
+BTCç³»ç»Ÿä¸­ä¸€èˆ¬å…ˆå¯¹msgåšhashï¼Œå†å¯¹hashå€¼ç­¾å
+** æ¯”ç‰¹å¸çš„æ•°æ®ç»“æ„
 Block chain is a linked list using *hash pointers*.
 *** hash pointer
 #+begin_example
-tamper-evident log ´Û¸ÄÖ¤Ã÷¼ÇÂ¼
+tamper-evident log ç¯¡æ”¹è¯æ˜è®°å½•
 
  ---       ---       ---       ---
 |   | <-- |H()| <-- |H()| <-- |H()| <-- H()
@@ -56,30 +56,30 @@ genesis block               most recent block
      ---   ---   ---   ---
 #+end_example
 merkle proof: path from data block to root
-full node£ºblock header and block body
-light node£ºonly block header
+full nodeï¼šblock header and block body
+light nodeï¼šonly block header
 
 proof of membership: O(log(n))
 proof of non-membership: O(log(n)) -> sorted merkle tree
-** ¹«Ê¾Ğ­ÒéºÍÏµÍ³ÊµÏÖ
-*** Ö½ÖÊ»õ±ÒºÍÊı×Ö»õ±ÒµÄÇø±ğ
+** å…¬ç¤ºåè®®å’Œç³»ç»Ÿå®ç°
+*** çº¸è´¨è´§å¸å’Œæ•°å­—è´§å¸çš„åŒºåˆ«
 1. double spending attack
-*** È¥ÖĞĞÄ»¯Êı×Ö»õ±Ò
-1. Ë­¾ö¶¨»õ±ÒµÄ·¢ĞĞ
-   coinbase transaction: ²úÉú»õ±ÒµÄÎ¨Ò»À´Ô´
-2. ÔõÃ´ÑéÖ¤½»Ò×ÓĞĞ§ĞÔ--double spending attack
-   Çø¿éÁ´
+*** å»ä¸­å¿ƒåŒ–æ•°å­—è´§å¸
+1. è°å†³å®šè´§å¸çš„å‘è¡Œ
+   coinbase transaction: äº§ç”Ÿè´§å¸çš„å”¯ä¸€æ¥æº
+2. æ€ä¹ˆéªŒè¯äº¤æ˜“æœ‰æ•ˆæ€§--double spending attack
+   åŒºå—é“¾
 
-Ã¿¸ö½»Ò×°üº¬ÊäÈëºÍÊä³ö
-ÊäÈë£º±ÒµÄÀ´Ô´¡¢×Ô¼ºµÄ¹«Ô¿
-Êä³ö£ºÊÕ¿îÈË¹«Ô¿µÄhash
+æ¯ä¸ªäº¤æ˜“åŒ…å«è¾“å…¥å’Œè¾“å‡º
+è¾“å…¥ï¼šå¸çš„æ¥æºã€è‡ªå·±çš„å…¬é’¥
+è¾“å‡ºï¼šæ”¶æ¬¾äººå…¬é’¥çš„hash
 
-A¸øB×ªÕËĞèÒªµÄĞÅÏ¢£º
-1. AµÄÇ©Ãû
-2. BµÄµØÖ·
-*** Çø¿éÁ´
-Çø¿éÁ´£ºÇø¿é×é³ÉµÄÁ´±í
-Ã¿¸öÇø¿éÊÇÒ»¸ömerkle tree£¬°üº¬block headerºÍblock body
+Aç»™Bè½¬è´¦éœ€è¦çš„ä¿¡æ¯ï¼š
+1. Açš„ç­¾å
+2. Bçš„åœ°å€
+*** åŒºå—é“¾
+åŒºå—é“¾ï¼šåŒºå—ç»„æˆçš„é“¾è¡¨
+æ¯ä¸ªåŒºå—æ˜¯ä¸€ä¸ªmerkle treeï¼ŒåŒ…å«block headerå’Œblock body
 1. block header
    1) version
    2) hash of previous block header
@@ -89,43 +89,43 @@ A¸øB×ªÕËĞèÒªµÄĞÅÏ¢£º
 2. block body
    1) transaction list
 *** consensus in bitcoin
-È¥ÖĞĞÄ»¯ÕË±¾µÄÄÚÈİÊÇĞèÒªÈ¡µÃµÄ¹²Ê¶
-Ö»ÓĞ»ñµÃ¼ÇÕËÈ¨µÄ½Úµã²Å¿ÉÒÔĞ´Õâ¸öÕË±¾(block reward + transaction fee)
-ÈçºÎ»ñµÃ¼ÇÕËÈ¨£ºmining
+å»ä¸­å¿ƒåŒ–è´¦æœ¬çš„å†…å®¹æ˜¯éœ€è¦å–å¾—çš„å…±è¯†
+åªæœ‰è·å¾—è®°è´¦æƒçš„èŠ‚ç‚¹æ‰å¯ä»¥å†™è¿™ä¸ªè´¦æœ¬(block reward + transaction fee)
+å¦‚ä½•è·å¾—è®°è´¦æƒï¼šmining
 H(block header) <= target
 
 block must be in longest valid chain
 *** transaction-based ledger
-È«½ÚµãÎ¬»¤Ò»¸öUTXOµÄÊı¾İ½á¹¹
+å…¨èŠ‚ç‚¹ç»´æŠ¤ä¸€ä¸ªUTXOçš„æ•°æ®ç»“æ„
 UTXO: Unspent Transaction Output
 
-Ã¿¸ö½»Ò×ÊäÈëµÄ½ğ¶îÒªµÈÓÚÊä³öµÄ½ğ¶î(total inputs = total outputs)
+æ¯ä¸ªäº¤æ˜“è¾“å…¥çš„é‡‘é¢è¦ç­‰äºè¾“å‡ºçš„é‡‘é¢(total inputs = total outputs)
 *** secure
 Bernoulli trial: a random experiment with binary outcome
 Bernoulli process: a sequence of independent Bernoulli trial
 Poisson Process
-³ö¿éÊ±¼ä·ş´ÓÖ¸Êı·Ö²¼: exponential distribution
-±£Ö¤ÍÚ¿ó¹«Æ½: progress free
+å‡ºå—æ—¶é—´æœä»æŒ‡æ•°åˆ†å¸ƒ: exponential distribution
+ä¿è¯æŒ–çŸ¿å…¬å¹³: progress free
 
 bitcoin is secured by mining.
 
-°²È«ĞÔ£ºsix confirmation
+å®‰å…¨æ€§ï¼šsix confirmation
 
 selfish mining
-** ÍÚ¿óËã·¨ºÍÄÑ¶Èµ÷Õû
+** æŒ–çŸ¿ç®—æ³•å’Œéš¾åº¦è°ƒæ•´
 
-** ±ÈÌØ±Ò½Å±¾
-** Èí·Ö²æºÍÓ²·Ö²æ
-** ÄäÃûºÍÒşË½±£»¤
+** æ¯”ç‰¹å¸è„šæœ¬
+** è½¯åˆ†å‰å’Œç¡¬åˆ†å‰
+** åŒ¿åå’Œéšç§ä¿æŠ¤
 * ETH
-** »ùÓÚÕË»§µÄ·Ö²¼Ê½ÕË±¾
+** åŸºäºè´¦æˆ·çš„åˆ†å¸ƒå¼è´¦æœ¬
 account-based ledger
-** ×´Ì¬Ê÷¡¢½»Ò×Ê÷¡¢ÊÕ¾İÊ÷
-** GHOSTĞ­Òé
-** ÍÚ¿ó£ºmemory-hard mining puzzle
-** ÍÚ¿óÄÑ¶ÈÖ¤Ã÷
-** È¨ÒæÖ¤Ã÷
-** ÖÇÄÜºÏÔ¼
+** çŠ¶æ€æ ‘ã€äº¤æ˜“æ ‘ã€æ”¶æ®æ ‘
+** GHOSTåè®®
+** æŒ–çŸ¿ï¼šmemory-hard mining puzzle
+** æŒ–çŸ¿éš¾åº¦è¯æ˜
+** æƒç›Šè¯æ˜
+** æ™ºèƒ½åˆçº¦
 
 
 
